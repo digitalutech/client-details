@@ -1,49 +1,129 @@
-<h2>Add Client Details</h2>
-<form (ngSubmit)="submitForm()">
-  <h3>Company Details</h3>
-  <label>
-    Name:
-    <input [(ngModel)]="companyDetails.name" name="companyName" required>
-  </label>
-  <label>
-    Type:
-    <input [(ngModel)]="companyDetails.type" name="companyType" required>
-  </label>
-  <label>
-    Address:
-    <input [(ngModel)]="companyDetails.address" name="companyAddress" required>
-  </label>
-  <label>
-    Link:
-    <input [(ngModel)]="companyDetails.link" name="companyLink" required>
-  </label>
-  <label>
-    Description:
-    <textarea [(ngModel)]="companyDetails.description" name="companyDescription" required></textarea>
-  </label>
+<h2 class="text-2xl font-bold text-center mb-5">Add Client Details</h2>
 
-  <h3>Contact Persons</h3>
-  <div *ngFor="let person of contactPersons; let i = index">
-    <h4>Contact Person {{ i + 1 }}</h4>
-    <label>
-      Name:
-      <input [(ngModel)]="person.name" name="contactName{{ i }}" required>
-    </label>
-    <label>
-      Position:
-      <input [(ngModel)]="person.position" name="contactPosition{{ i }}" required>
-    </label>
-    <label>
-      Phone:
-      <input [(ngModel)]="person.phone" name="contactPhone{{ i }}" required>
-    </label>
-    <label>
-      Email:
-      <input [(ngModel)]="person.email" name="contactEmail{{ i }}" required>
+<!-- Close Button -->
+<button
+  mat-icon-button
+  (click)="closeDialog()"
+  class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+>
+  <mat-icon>close</mat-icon>
+</button>
+
+<form (ngSubmit)="submitForm()" class="space-y-6">
+  <div class="bg-gray-200 p-5 rounded-lg shadow">
+    <h3 class="text-xl font-semibold mb-3">Company Details</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <label class="flex flex-col">
+        Name:
+        <input
+          [(ngModel)]="companyDetails.name"
+          name="companyName"
+          required
+          class="mt-1 p-2 border border-gray-300 rounded"
+        />
+      </label>
+      <label class="flex flex-col">
+        Type:
+        <input
+          [(ngModel)]="companyDetails.type"
+          name="companyType"
+          required
+          class="mt-1 p-2 border border-gray-300 rounded"
+        />
+      </label>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <label class="flex flex-col">
+        Address:
+        <input
+          [(ngModel)]="companyDetails.address"
+          name="companyAddress"
+          required
+          class="mt-1 p-2 border border-gray-300 rounded"
+        />
+      </label>
+      <label class="flex flex-col">
+        Link:
+        <input
+          [(ngModel)]="companyDetails.link"
+          name="companyLink"
+          required
+          class="mt-1 p-2 border border-gray-300 rounded"
+        />
+      </label>
+    </div>
+    <label class="flex flex-col">
+      Description:
+      <textarea
+        [(ngModel)]="companyDetails.description"
+        name="companyDescription"
+        required
+        class="mt-1 p-2 border border-gray-300 rounded h-24"
+      ></textarea>
     </label>
   </div>
-  
-  <button mat-button type="button" (click)="addContactPerson()">Add Contact Person</button>
-  <br>
-  <button mat-raised-button type="submit">Submit</button>
+
+  <div class="bg-gray-200 p-5 rounded-lg shadow">
+    <h3 class="text-xl font-semibold mb-3">Contact Persons</h3>
+    <div *ngFor="let person of contactPersons; let i = index">
+      <h4 class="text-lg font-semibold mb-2">Contact Person {{ i + 1 }}</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="flex flex-col">
+          Name:
+          <input
+            [(ngModel)]="person.name"
+            name="contactName{{ i }}"
+            required
+            class="mt-1 p-2 border border-gray-300 rounded"
+          />
+        </label>
+        <label class="flex flex-col">
+          Position:
+          <input
+            [(ngModel)]="person.position"
+            name="contactPosition{{ i }}"
+            required
+            class="mt-1 p-2 border border-gray-300 rounded"
+          />
+        </label>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="flex flex-col">
+          Phone:
+          <input
+            [(ngModel)]="person.phone"
+            name="contactPhone{{ i }}"
+            required
+            class="mt-1 p-2 border border-gray-300 rounded"
+          />
+        </label>
+        <label class="flex flex-col">
+          Email:
+          <input
+            [(ngModel)]="person.email"
+            name="contactEmail{{ i }}"
+            required
+            class="mt-1 p-2 border border-gray-300 rounded"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <button
+    mat-button
+    type="button"
+    (click)="addContactPerson()"
+    class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+  >
+    Add Contact Person
+  </button>
+  <br />
+  <button
+    mat-raised-button
+    type="submit"
+    class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+  >
+    Submit
+  </button>
 </form>

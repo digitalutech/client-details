@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-client',
@@ -24,5 +25,10 @@ export class AddClientComponent {
     console.log('Company Details:', this.companyDetails);
     console.log('Contact Persons:', this.contactPersons);
     // Handle form submission logic here
+  }
+  constructor(public dialogRef: MatDialogRef<AddClientComponent>) {}
+
+  closeDialog(): void {
+    this.dialogRef.close(); // Close the dialog
   }
 }

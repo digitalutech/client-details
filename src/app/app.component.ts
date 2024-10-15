@@ -14,7 +14,7 @@ export class AppComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddClientComponent, {
-      width: '400px',
+      width: '90%',
       panelClass: 'custom-dialog-container',
     });
 
