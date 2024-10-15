@@ -14,13 +14,13 @@ export class AppComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddClientComponent, {
-      width: '90%',
-      panelClass: 'custom-dialog-container',
+      width: '90%', // Make the dialog full width
+      height: '90%', // Make the dialog full height
+      panelClass: 'custom-dialog-container', // Use the custom dialog container class
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // Handle any actions after dialog close
     });
   }
 }
